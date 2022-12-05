@@ -33,16 +33,16 @@ public class JDBCFinal {
               System.out.println(input);
           }
         //calling the connection statement fucntion
-//        Statement stmt = con.createStatement();
-//        System.out.println("Connection Established");
-//        //execute a query, results have to go into a ResultSet object
-//        ResultSet result = stmt.executeQuery("SELECT sid from student");
-//        System.out.println("Processing Results");
-//        while (result.next()) { // process results one row at a time
-//            int key = result.getInt(1);  // 1 because first attribute and only attribute from our result
-//            // in the select clause
-//            System.out.println("Sid = " + key);
-//        }
+        Statement stmt = con.createStatement();
+        System.out.println("Connection Established");
+        //execute a query, results have to go into a ResultSet object
+        ResultSet result = stmt.executeQuery("SELECT * from listing");
+        System.out.println("Processing Results");
+        while (result.next()) { // process results one row at a time
+            //int key = result.getInt(1);  // 1 because first attribute and only attribute from our result
+            // in the select clause
+            System.out.println("Sid = "+ result.getString(1)+"/"+ result.getString(2)+ "/"+result.getString(3)+ "/"+result.getString(4));
+        }
     }
         catch (SQLException e){
         System.out.println(e.getMessage() + " Can't connect to database");
